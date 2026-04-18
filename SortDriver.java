@@ -1,12 +1,11 @@
-import java.util.Scanner;
-import java.util.Random;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
+import java.util.Scanner;
 
 public class SortDriver {
 
-    static void main(String[] args) {
-
+    public static void main(String[] args) {
         Sorting sorter = new Sorting();
 
         if (args.length == 0) {
@@ -17,7 +16,6 @@ public class SortDriver {
     }
 
     private static void runExperiment1(Sorting sorter, String fileName) {
-
         int[] arr;
         try {
             arr = readFile(fileName);
@@ -36,33 +34,38 @@ public class SortDriver {
             case "s":
                 sorter.selectionSort(arr);
                 printArray(arr);
-                System.out.println("Selection-sort comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Selection-sort comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "m":
                 sorter.mergeSort(arr);
                 printArray(arr);
-                System.out.println("Merge-sort comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Merge-sort comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "h":
                 sorter.heapSort(arr);
                 printArray(arr);
-                System.out.println("Heap-sort comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Heap-sort comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "q":
                 sorter.quickSortFP(arr);
                 printArray(arr);
-                System.out.println("Quick-sort-fp comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Quick-sort-fp comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "r":
                 sorter.quickSortRP(arr);
                 printArray(arr);
-                System.out.println("Quick-sort-rp comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Quick-sort-rp comparisons: " + sorter.getCount()
+                );
                 break;
-
             default:
                 System.out.println("Invalid algorithm choice.");
                 break;
@@ -72,7 +75,6 @@ public class SortDriver {
     }
 
     private static void runExperiment2(Sorting sorter) {
-
         Scanner input = new Scanner(System.in);
 
         printMenu();
@@ -96,29 +98,34 @@ public class SortDriver {
         switch (choice) {
             case "s":
                 sorter.selectionSort(arr);
-                System.out.println("#Selection-sort comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Selection-sort comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "m":
                 sorter.mergeSort(arr);
-                System.out.println("#Merge-sort comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Merge-sort comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "h":
                 sorter.heapSort(arr);
-                System.out.println("#Heap-sort comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Heap-sort comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "q":
                 sorter.quickSortFP(arr);
-                System.out.println("#Quick-sort-fp comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Quick-sort-fp comparisons: " + sorter.getCount()
+                );
                 break;
-
             case "r":
                 sorter.quickSortRP(arr);
-                System.out.println("#Quick-sort-rp comparisons: " + sorter.getCount());
+                System.out.println(
+                    "#Quick-sort-rp comparisons: " + sorter.getCount()
+                );
                 break;
-
             default:
                 System.out.println("Invalid algorithm choice.");
                 break;
@@ -127,7 +134,8 @@ public class SortDriver {
         input.close();
     }
 
-    private static int[] readFile(String fileName) throws FileNotFoundException {
+    private static int[] readFile(String fileName)
+        throws FileNotFoundException {
         Scanner counter = new Scanner(new File(fileName));
         int size = 0;
         while (counter.hasNextInt()) {
@@ -165,6 +173,8 @@ public class SortDriver {
     }
 
     private static void printMenu() {
-        System.out.println("selection-sort (s)   merge-sort (m)   heap-sort (h)   quick-sort-fp (q) quick-sort-rp (r)");
+        System.out.println(
+            "selection-sort (s)   merge-sort (m)   heap-sort (h)   quick-sort-fp (q) quick-sort-rp (r)"
+        );
     }
 }
